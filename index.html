@@ -7,13 +7,58 @@
     <style>
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
+            line-height: 1.65; 
             color: #333; 
             max-width: 800px; 
             margin: 0 auto; 
             padding: 20px; 
+            background-color: #ffffff;
         }
-        h1, h2 { color: #111; }
+        h1, h2 { 
+            color: #111; 
+        }
+        h1 {
+            margin-bottom: 6px;
+        }
+        h2 {
+            margin-top: 28px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.25em;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        ul {
+            margin-top: 6px;
+            margin-bottom: 16px;
+            padding-left: 22px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: #0088CC;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .last-updated {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+        .highlight-box {
+            background-color: #F4FDFF;
+            border-left: 4px solid #00E5FF;
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
         footer { 
             margin-top: 40px; 
             font-size: 0.9em; 
@@ -22,7 +67,7 @@
             padding-top: 20px; 
         }
         
-        /* 按钮的 CSS 样式 */
+        /* 按钮的 CSS 样式（100% 保留您契合 App 的 #00E5FF 主题色设计） */
         .btn-return {
             display: inline-block;
             margin-bottom: 20px;
@@ -37,6 +82,7 @@
         }
         .btn-return:hover {
             background-color: #00B8CC;
+            text-decoration: none;
         }
         .btn-return:active {
             transform: scale(0.98);
@@ -44,38 +90,66 @@
     </style>
 </head>
 <body>
-    <!-- 返回项目按钮 -->
-    <a href="https://play.google.com/store/apps/details?id=com.hifiradio.fmradio" class="btn-return" target="_blank">
+    <!-- 返回项目按钮（支持 App 内返回与外部跳转 Google Play 双模式） -->
+    <a href="https://play.google.com/store/apps/details?id=com.hifiradio.fmradio" class="btn-return" target="_blank" rel="noopener noreferrer">
         &larr; Return to App
     </a>
 
     <h1>Privacy Policy</h1>
-    <p>Last updated: August 2026</p>
-    <p><strong>Phoenix Global Studios</strong> operates the <strong>FM Radio: HiFi Radio AM FM</strong> mobile application. This page informs you of our policies regarding the collection, use, and disclosure of personal information when you use our App.</p>
+    <p class="last-updated">Last updated: October 2026</p>
+    <p><strong>Phoenix Global Studios</strong> operates the <strong>FM Radio: HiFi Radio AM FM</strong> mobile application (Package ID: <code>com.hifiradio.fmradio</code>). This page informs you of our policies regarding the collection, use, and disclosure of information when you use our App.</p>
+
+    <div class="highlight-box">
+        <strong>Privacy-First &amp; Offline-First Architecture:</strong> The App does <strong>not</strong> require account registration, does <strong>not</strong> maintain any cloud user database, and processes all 32-band HiFi DSP audio rendering, real-time AI subtitles, and bilingual translations <strong>100% locally on your device</strong>.
+    </div>
 
     <h2>1. Information Collection and Use</h2>
-    <p>We prioritize your privacy. The App does <strong>not</strong> require account registration, nor does it collect or store personally identifiable information (PII) such as your name, email address, physical address, or phone number.</p>
+    <p>We prioritize your privacy. The App does <strong>not</strong> require you to create an account, nor does it collect, transmit, or store personally identifiable information (PII) such as your name, email address, physical address, phone number, contacts, or precise GPS location on any external server.</p>
 
-    <h2>2. Third-Party Services & Advertising</h2>
-    <p>To keep the App free, we use third-party advertising services (e.g., Google AdMob). These third-party services may collect non-sensitive device diagnostics, location indicators, or Google Advertising ID (AAID) to serve tailored ads and prevent fraud in accordance with their privacy policies.</p>
-
-    <h2>3. Permissions & Foreground Services</h2>
-    <p>The App requests specific Android system permissions solely to deliver core radio streaming functionalities:</p>
+    <h2>2. On-Device AI Subtitles, Offline Translation &amp; Local Media</h2>
+    <p>Our App includes advanced audio and artificial intelligence features designed to run strictly on your device:</p>
     <ul>
-        <li><strong>INTERNET & ACCESS_NETWORK_STATE:</strong> Required to establish connection to online audio streams.</li>
-        <li><strong>FOREGROUND_SERVICE / FOREGROUND_SERVICE_MEDIA_PLAYBACK:</strong> Used exclusively to ensure continuous audio playback when the user closes the screen or runs the App in the background.</li>
-        <li><strong>WIFI_STATE:</strong> Used to discover local network devices for casting (DLNA / Google Cast).</li>
+        <li><strong>On-Device AI Speech Recognition (Real-Time CC Subtitles):</strong> When you enable real-time subtitles for radio broadcasts, audio streams are processed locally in your device's volatile memory (RAM) using an embedded offline acoustic engine (Vosk). We <strong>never</strong> record, store, or upload any audio streams or voice data to any cloud server.</li>
+        <li><strong>On-Device Neural Translation (Google ML Kit):</strong> Real-time bilingual subtitle translation is performed locally on your device using offline translation models. Downloaded language models are stored strictly within the App's local sandbox.</li>
+        <li><strong>Local Lossless Audio &amp; Lyrics (SAF):</strong> When you choose to play local audio files (such as FLAC, WAV, MP3, AAC, or OGG) or import <code>.lrc</code> lyrics from your device, file access is granted explicitly by you through Android's native Storage Access Framework (SAF). We do not upload or index your personal media files on external servers. When matching lyrics for local tracks, only the song title and artist metadata are queried against public lyrics databases.</li>
     </ul>
 
-    <h2>4. Audio Content & DMCA Disclaimer</h2>
-    <p><strong>FM Radio: HiFi Radio AM FM</strong> is an audio streaming aggregator. The audio streams made available through the App are hosted on public third-party servers across the internet. We do not host, store, or broadcast any media files directly.</p>
-    <p>All trademarks, copyright material, and broadcast streams belong to their respective owners. If you believe your copyrighted content is being infringed upon without authorization, please contact the original stream provider or reach out to us for stream link removal.</p>
+    <h2>3. Third-Party Services, Advertising &amp; Subscriptions</h2>
+    <p>To support ongoing development and offer optional ad-free VIP upgrades, the App integrates certified third-party services provided by Google:</p>
+    <ul>
+        <li><strong>Google AdMob &amp; User Messaging Platform (UMP):</strong> For free-tier users, we use Google AdMob to display banners, app-open ads, and optional rewarded advertisements. AdMob may collect non-sensitive device diagnostics, coarse IP-based location indicators, and your Google Advertising ID (AAID) to serve personalized or non-personalized ads and prevent fraud, strictly in accordance with your consent choices managed via Google UMP (GDPR / CCPA compliant). You can reset your Advertising ID or opt out of personalized ads at any time in your Android device settings (<em>Settings &rarr; Google &rarr; Ads</em>).</li>
+        <li><strong>Google Play Billing (VIP Subscriptions):</strong> All in-app VIP subscription purchases, renewals, and restorations are processed securely and directly by Google Play. <strong>Phoenix Global Studios</strong> never collects, processes, or has access to your credit card number, bank account, or billing details.</li>
+        <li><strong>Google Play Core (In-App Updates &amp; Asset Delivery):</strong> Used to check for official App updates and deliver offline AI language packages securely via Google Play.</li>
+    </ul>
+    <p>You can review Google's official privacy practices here: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
 
-    <h2>5. Security</h2>
-    <p>We value your trust in providing us non-personal access, and we endeavor to use commercially acceptable means of protecting network traffic using encrypted protocols where available.</p>
+    <h2>4. Permissions, Local Casting &amp; Foreground Services</h2>
+    <p>The App requests specific Android system permissions solely to deliver core HiFi audio streaming, casting, and automotive functionalities:</p>
+    <ul>
+        <li><strong>INTERNET &amp; ACCESS_NETWORK_STATE:</strong> Required to connect to public online radio streams, fetch station metadata, and load album artwork.</li>
+        <li><strong>FOREGROUND_SERVICE &amp; FOREGROUND_SERVICE_MEDIA_PLAYBACK:</strong> Used exclusively to ensure uninterrupted HiFi audio playback when you lock your screen, switch apps, or connect to Android Auto.</li>
+        <li><strong>ACCESS_WIFI_STATE &amp; CHANGE_WIFI_MULTICAST_STATE:</strong> Used exclusively to discover smart TVs, UPnP/DLNA renderers, and Google Cast (Chromecast) speakers on your local Wi-Fi network (LAN). When casting local audio or incompatible radio streams, the App runs a temporary, local-only HTTP proxy server on your phone's LAN IP to relay the audio stream directly to your TV or speaker. No local network data ever leaves your home router.</li>
+        <li><strong>Android Auto Integration:</strong> Allows safe, distraction-free station browsing and playback control through your vehicle's head unit display.</li>
+    </ul>
 
-    <h2>6. Contact Us</h2>
-    <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at phoenixglobalstudios@gmail.com.</p>
+    <h2>5. Audio Content &amp; DMCA Disclaimer</h2>
+    <p><strong>FM Radio: HiFi Radio AM FM</strong> is an audio streaming player and directory aggregator. The audio streams made available through the App are hosted on public third-party servers across the internet. We do not host, store, or broadcast any third-party radio media files directly.</p>
+    <p>All station names, logos, trademarks, copyright material, and broadcast streams belong to their respective owners. If you are a copyright owner or broadcaster and believe your content is being linked without authorization, please contact the original stream provider or reach out to us at <a href="mailto:phoenixglobalstudios@gmail.com">phoenixglobalstudios@gmail.com</a> for prompt station link removal.</p>
+
+    <h2>6. Local Data Storage, Retention &amp; Deletion</h2>
+    <p>All user preferences—including your favorite stations, custom 32-band EQ acoustic presets, theme selections, and recent playback snapshots—are stored <strong>100% locally on your device</strong> (via Android Room database and SharedPreferences). Because we do not store personal data on external servers, you have complete control over your data and can permanently delete all stored preferences at any time by clearing the App's storage in your Android system settings or by uninstalling the App.</p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>Our App is intended for a general audience and is not directed to children under the age of 13 (or the applicable minimum age in your jurisdiction). We do not knowingly collect any personal information from children.</p>
+
+    <h2>8. Security</h2>
+    <p>We value your trust in using our App. We safeguard network traffic using encrypted HTTPS/TLS protocols where supported by stream providers, and enforce strict local sandbox isolation for all on-device DSP and AI processing.</p>
+
+    <h2>9. Changes to This Privacy Policy</h2>
+    <p>We may update our Privacy Policy from time to time to reflect new features or regulatory requirements. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top.</p>
+
+    <h2>10. Contact Us</h2>
+    <p>If you have any questions, concerns, or suggestions about our Privacy Policy, please do not hesitate to contact us at: <a href="mailto:phoenixglobalstudios@gmail.com">phoenixglobalstudios@gmail.com</a></p>
 
     <footer>
         <p>&copy; 2026 Phoenix Global Studios. All rights reserved.</p>
