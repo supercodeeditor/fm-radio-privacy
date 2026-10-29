@@ -1,3 +1,4 @@
+<!-- 文件路径: index.html (部署于 https://supercodeeditor.github.io/fm-radio-privacy/) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,23 +10,28 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             line-height: 1.65; 
             color: #333; 
-            max-width: 800px; 
+            max-width: 840px; 
             margin: 0 auto; 
             padding: 20px; 
             background-color: #ffffff;
         }
-        h1, h2 { 
+        h1, h2, h3 { 
             color: #111; 
         }
         h1 {
             margin-bottom: 6px;
         }
         h2 {
-            margin-top: 28px;
-            margin-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 12px;
             padding-bottom: 6px;
             border-bottom: 1px solid #f0f0f0;
             font-size: 1.25em;
+        }
+        h3 {
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-size: 1.05em;
         }
         p {
             margin-top: 0;
@@ -46,6 +52,13 @@
         a:hover {
             text-decoration: underline;
         }
+        code {
+            background-color: #f4f6f8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+        }
         .last-updated {
             color: #666;
             font-size: 0.95em;
@@ -58,6 +71,41 @@
             margin: 16px 0;
             border-radius: 4px;
             font-size: 0.95em;
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0 22px 0;
+        }
+        .policy-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92em;
+            text-align: left;
+        }
+        .policy-table th, .policy-table td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            vertical-align: top;
+        }
+        .policy-table th {
+            background-color: #f8fafc;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .policy-table tr:nth-child(even) {
+            background-color: #fcfdfe;
+        }
+        .badge-pill {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 0.82em;
+            font-weight: 700;
+            border-radius: 12px;
+            background-color: #e0f7fa;
+            color: #006064;
+            margin-right: 4px;
+            margin-bottom: 4px;
         }
         footer { 
             margin-top: 40px; 
@@ -72,7 +120,7 @@
             display: inline-block;
             margin-bottom: 20px;
             padding: 10px 20px;
-            background-color: #00E5FF; /* 契合你 App 的主题色 */
+            background-color: #00E5FF;
             color: #111;
             text-decoration: none;
             border-radius: 8px;
@@ -96,60 +144,161 @@
     </a>
 
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: October 2026</p>
-    <p><strong>Phoenix Global Studios</strong> operates the <strong>FM Radio: HiFi Radio AM FM</strong> mobile application (Package ID: <code>com.hifiradio.fmradio</code>). This page informs you of our policies regarding the collection, use, and disclosure of information when you use our App.</p>
+    <p class="last-updated">Last updated: October 28, 2026</p>
+    <p><strong>Phoenix Global Studios</strong> ("we", "us", or "our") operates the <strong>FM Radio: HiFi Radio AM FM</strong> mobile application (Package ID: <code>com.hifiradio.fmradio</code>, hereinafter referred to as the "App"). This Privacy Policy informs you of our policies regarding the collection, use, sharing, and protection of user data when you use our App, in full compliance with Google Play's User Data and Data Safety policies.</p>
 
     <div class="highlight-box">
-        <strong>Privacy-First &amp; Offline-First Architecture:</strong> The App does <strong>not</strong> require account registration, does <strong>not</strong> maintain any cloud user database, and processes all 32-band HiFi DSP audio rendering, real-time AI subtitles, and bilingual translations <strong>100% locally on your device</strong>.
+        <strong>Privacy-First &amp; Offline-First Core Architecture:</strong> The App does <strong>not</strong> require user account registration, does <strong>not</strong> maintain any developer-owned cloud user database, and processes all 32-band HiFi DSP audio rendering, real-time AI speech recognition subtitles, and bilingual translations <strong>100% locally on your device</strong>. However, integrated third-party SDKs (such as Google AdMob, Google Play Services, and Google ML Kit) automatically collect and share <strong>Device or other IDs</strong> (such as Advertising ID and Android ID) over encrypted connections as detailed in Section 3 below.
     </div>
 
-    <h2>1. Information Collection and Use</h2>
-    <p>We prioritize your privacy. The App does <strong>not</strong> require you to create an account, nor does it collect, transmit, or store personally identifiable information (PII) such as your name, email address, physical address, phone number, contacts, or precise GPS location on any external server.</p>
-
-    <h2>2. On-Device AI Subtitles, Offline Translation &amp; Local Media</h2>
-    <p>Our App includes advanced audio and artificial intelligence features designed to run strictly on your device:</p>
+    <h2>1. Summary of Information Collection and Use</h2>
     <ul>
-        <li><strong>On-Device AI Speech Recognition (Real-Time CC Subtitles):</strong> When you enable real-time subtitles for radio broadcasts, audio streams are processed locally in your device's volatile memory (RAM) using an embedded offline acoustic engine (Vosk). We <strong>never</strong> record, store, or upload any audio streams or voice data to any cloud server.</li>
-        <li><strong>On-Device Neural Translation (Google ML Kit):</strong> Real-time bilingual subtitle translation is performed locally on your device using offline translation models. Downloaded language models are stored strictly within the App's local sandbox.</li>
-        <li><strong>Local Lossless Audio &amp; Lyrics (SAF):</strong> When you choose to play local audio files (such as FLAC, WAV, MP3, AAC, or OGG) or import <code>.lrc</code> lyrics from your device, file access is granted explicitly by you through Android's native Storage Access Framework (SAF). We do not upload or index your personal media files on external servers. When matching lyrics for local tracks, only the song title and artist metadata are queried against public lyrics databases.</li>
+        <li><strong>No Direct Personal Identity Accounts:</strong> We do <strong>not</strong> ask you to register an account, nor do we directly collect your real name, email address (unless you voluntarily email us for support), physical mailing address, phone number, contacts, or precise GPS coordinates.</li>
+        <li><strong>Automated SDK Data Collection &amp; Sharing (Device or other IDs):</strong> To provide free ad-supported radio streaming, in-app VIP subscriptions, Google Cast streaming, and on-device AI model delivery, third-party SDKs integrated into the App collect and share <strong>Device or other IDs</strong> (including Google Advertising ID / AAID, Android ID, App Set ID, and Firebase/Play Services Installation IDs), <strong>App activity</strong> (in-app interactions and ad impressions/clicks), and <strong>App info and performance</strong> (crash logs and diagnostics).</li>
+        <li><strong>Encryption in Transit:</strong> All data transmitted off the device by the App and its integrated SDKs is encrypted in transit using industry-standard <strong>HTTPS / TLS</strong> protocols.</li>
     </ul>
 
-    <h2>3. Third-Party Services, Advertising &amp; Subscriptions</h2>
-    <p>To support ongoing development and offer optional ad-free VIP upgrades, the App integrates certified third-party services provided by Google:</p>
+    <h2>2. Google Play Data Safety Disclosure Matrix ("Device or other IDs")</h2>
+    <p>In strict accordance with Google Play's Data Safety requirements, the table below discloses how our App and its embedded third-party SDKs collect, use, and share user data types transmitted off your device:</p>
+
+    <div class="table-container">
+        <table class="policy-table">
+            <thead>
+                <tr>
+                    <th>Google Play Data Category &amp; Data Type</th>
+                    <th>Specific Examples</th>
+                    <th>Collected &amp; Shared Status</th>
+                    <th>Ephemeral Processing &amp; User Control</th>
+                    <th>Purposes of Collection &amp; Sharing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Device or other IDs</strong><br>(Data Type: <em>Device or other IDs</em>)</td>
+                    <td>Google Advertising ID (AAID), Android ID, App Set ID, Play Services Installation ID</td>
+                    <td>
+                        <span class="badge-pill">Collected: Yes</span><br>
+                        <span class="badge-pill">Shared: Yes</span>
+                    </td>
+                    <td>
+                        <strong>Processed ephemerally: No.</strong><br>
+                        Required for basic SDK operation; personalized ad tracking is controlled via Google UMP consent and Android system settings.
+                    </td>
+                    <td>
+                        &bull; <strong>App functionality</strong> (model delivery, casting session routing)<br>
+                        &bull; <strong>Analytics</strong> (audience &amp; ad performance measurement)<br>
+                        &bull; <strong>Advertising or marketing</strong> (serving banner, app-open &amp; rewarded ads via AdMob)<br>
+                        &bull; <strong>Fraud prevention, security, and compliance</strong> (invalid traffic detection &amp; Play Billing verification)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>App activity</strong><br>(Data Type: <em>In-app interactions</em>)</td>
+                    <td>Ad views, ad clicks, feature interaction telemetry</td>
+                    <td>
+                        <span class="badge-pill">Collected: Yes</span><br>
+                        <span class="badge-pill">Shared: Yes</span>
+                    </td>
+                    <td>
+                        <strong>Processed ephemerally: No.</strong><br>
+                        Encrypted in transit via HTTPS/TLS.
+                    </td>
+                    <td>
+                        &bull; <strong>Analytics</strong><br>
+                        &bull; <strong>Advertising or marketing</strong><br>
+                        &bull; <strong>Fraud prevention, security, and compliance</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>App info and performance</strong><br>(Data Types: <em>Crash logs</em> &amp; <em>Diagnostics</em>)</td>
+                    <td>SDK stability metrics, ANR/crash stack traces, network latency &amp; battery/thermal telemetry</td>
+                    <td>
+                        <span class="badge-pill">Collected: Yes</span><br>
+                        <span class="badge-pill">Shared: Yes</span>
+                    </td>
+                    <td>
+                        <strong>Processed ephemerally: No.</strong><br>
+                        Encrypted in transit via HTTPS/TLS.
+                    </td>
+                    <td>
+                        &bull; <strong>App functionality</strong><br>
+                        &bull; <strong>Analytics</strong><br>
+                        &bull; <strong>Fraud prevention, security, and compliance</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Location</strong><br>(Data Type: <em>Approximate location</em>)</td>
+                    <td>Coarse IP-based country/region lookup for "Nearby" radio stations and AdMob geo-compliance</td>
+                    <td>
+                        <span class="badge-pill">Collected: Yes</span><br>
+                        <span class="badge-pill">Shared: Yes</span>
+                    </td>
+                    <td>
+                        <strong>No precise GPS permission is requested.</strong> Derived solely from standard network IP headers.
+                    </td>
+                    <td>
+                        &bull; <strong>App functionality</strong> (regional radio directory matching)<br>
+                        &bull; <strong>Advertising or marketing</strong><br>
+                        &bull; <strong>Fraud prevention, security, and compliance</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>3. Third-Party SDKs, Advertising &amp; Subscriptions</h2>
+    <p>To support ongoing audio engineering and offer optional ad-free VIP upgrades, the App integrates the following certified third-party services:</p>
     <ul>
-        <li><strong>Google AdMob &amp; User Messaging Platform (UMP):</strong> For free-tier users, we use Google AdMob to display banners, app-open ads, and optional rewarded advertisements. AdMob may collect non-sensitive device diagnostics, coarse IP-based location indicators, and your Google Advertising ID (AAID) to serve personalized or non-personalized ads and prevent fraud, strictly in accordance with your consent choices managed via Google UMP (GDPR / CCPA compliant). You can reset your Advertising ID or opt out of personalized ads at any time in your Android device settings (<em>Settings &rarr; Google &rarr; Ads</em>).</li>
-        <li><strong>Google Play Billing (VIP Subscriptions):</strong> All in-app VIP subscription purchases, renewals, and restorations are processed securely and directly by Google Play. <strong>Phoenix Global Studios</strong> never collects, processes, or has access to your credit card number, bank account, or billing details.</li>
-        <li><strong>Google Play Core (In-App Updates &amp; Asset Delivery):</strong> Used to check for official App updates and deliver offline AI language packages securely via Google Play.</li>
+        <li><strong>Google AdMob &amp; User Messaging Platform (UMP) (<code>com.google.android.gms:play-services-ads</code>):</strong> For non-VIP users, we use Google AdMob to display banners, app-open ads, and optional rewarded ads (to unlock 20-minute AI subtitle sessions). AdMob collects and shares <strong>Device or other IDs</strong> (specifically the Google Advertising ID / AAID and App Set ID), coarse IP-based location, and ad interaction diagnostics to serve personalized or non-personalized ads, perform analytics, and combat ad fraud. In the EEA, UK, and applicable regions, consent is managed via Google UMP (GDPR / CCPA compliant). The App declares the <code>com.google.android.gms.permission.AD_ID</code> permission in its manifest for this purpose.</li>
+        <li><strong>Google Play Billing V8 (<code>com.android.billingclient:billing</code>):</strong> Used for optional VIP subscriptions and purchase restorations. Google Play processes all payment transactions and uses device/account identifiers for fraud prevention and subscription entitlement verification. <strong>Phoenix Global Studios</strong> never collects or accesses your credit card or bank details.</li>
+        <li><strong>Google ML Kit On-Device Translation (<code>com.google.mlkit:translate</code>):</strong> Real-time bilingual subtitle translation runs locally on your device. However, when the ML Kit SDK downloads ~30 MB offline neural translation models from Google servers or checks model integrity, its internal telemetry component (<code>datatransport</code>) transmits <strong>Device or other IDs</strong> (installation/device identifiers) and download diagnostics to Google for app functionality and reliability analysis.</li>
+        <li><strong>Google Cast Framework (<code>com.google.android.gms:play-services-cast-framework</code>) &amp; Play Core (In-App Updates, In-App Review, Play Asset Delivery):</strong> Used to discover Chromecast devices, deliver the on-demand Vosk acoustic asset pack (<code>vosk_model_asset</code>), check for app updates, and provide the native Google Play review dialog. These Google Play Services libraries transmit device/installation identifiers to Google to ensure secure delivery and quota compliance.</li>
+        <li><strong>Public Radio Directories &amp; Community Lyrics (Radio-Browser &amp; LRCLIB):</strong> The App queries public radio directories (<code>radio-browser.info</code>) and the open community lyrics service (<code>lrclib.net</code>) over HTTPS. When auto-matching lyrics for local audio tracks, an on-device 6-layer PII privacy firewall strictly blocks personal voice recordings and strips file paths before sending only the sanitized song title and artist name.</li>
     </ul>
-    <p>You can review Google's official privacy practices here: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
+    <p>You can review Google's official privacy policy and data practices here: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
 
-    <h2>4. Permissions, Local Casting &amp; Foreground Services</h2>
-    <p>The App requests specific Android system permissions solely to deliver core HiFi audio streaming, casting, and automotive functionalities:</p>
+    <h2>4. On-Device AI Subtitles &amp; Local Lossless Media</h2>
     <ul>
-        <li><strong>INTERNET &amp; ACCESS_NETWORK_STATE:</strong> Required to connect to public online radio streams, fetch station metadata, and load album artwork.</li>
-        <li><strong>FOREGROUND_SERVICE &amp; FOREGROUND_SERVICE_MEDIA_PLAYBACK:</strong> Used exclusively to ensure uninterrupted HiFi audio playback when you lock your screen, switch apps, or connect to Android Auto.</li>
-        <li><strong>ACCESS_WIFI_STATE &amp; CHANGE_WIFI_MULTICAST_STATE:</strong> Used exclusively to discover smart TVs, UPnP/DLNA renderers, and Google Cast (Chromecast) speakers on your local Wi-Fi network (LAN). When casting local audio or incompatible radio streams, the App runs a temporary, local-only HTTP proxy server on your phone's LAN IP to relay the audio stream directly to your TV or speaker. No local network data ever leaves your home router.</li>
-        <li><strong>Android Auto Integration:</strong> Allows safe, distraction-free station browsing and playback control through your vehicle's head unit display.</li>
+        <li><strong>On-Device AI Speech Recognition (Real-Time CC Subtitles):</strong> When you enable real-time English subtitles, audio streams are decoded locally in your device's volatile memory (RAM) using the embedded offline Vosk engine (<code>vosk-model-small-en-us-0.15</code>). We <strong>never</strong> record, store, or upload any radio audio or voice streams to any external server.</li>
+        <li><strong>Local Lossless Audio &amp; Lyrics (SAF):</strong> When you import local audio files (FLAC, WAV, ALAC, APE, MP3, M4A, OGG) or <code>.lrc</code> files, access is granted exclusively by you via Android's native Storage Access Framework (SAF). Your personal audio files never leave your device.</li>
     </ul>
 
-    <h2>5. Audio Content &amp; DMCA Disclaimer</h2>
-    <p><strong>FM Radio: HiFi Radio AM FM</strong> is an audio streaming player and directory aggregator. The audio streams made available through the App are hosted on public third-party servers across the internet. We do not host, store, or broadcast any third-party radio media files directly.</p>
-    <p>All station names, logos, trademarks, copyright material, and broadcast streams belong to their respective owners. If you are a copyright owner or broadcaster and believe your content is being linked without authorization, please contact the original stream provider or reach out to us at <a href="mailto:phoenixglobalstudios@gmail.com">phoenixglobalstudios@gmail.com</a> for prompt station link removal.</p>
+    <h2>5. System Permissions, Local Casting &amp; Foreground Services</h2>
+    <p>The App requests specific Android permissions strictly necessary for audio streaming and device casting:</p>
+    <ul>
+        <li><strong><code>com.google.android.gms.permission.AD_ID</code>:</strong> Used by the Google Mobile Ads SDK (AdMob) to access the Google Advertising ID for advertising, analytics, and fraud prevention (unless disabled by VIP subscription or user opt-out).</li>
+        <li><strong><code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code>:</strong> Required to stream online radio broadcasts, download on-demand AI models, and load station artwork.</li>
+        <li><strong><code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> &amp; <code>WAKE_LOCK</code>:</strong> Used exclusively to keep HiFi audio playing smoothly when your screen is locked, in the background, or connected to Android Auto.</li>
+        <li><strong><code>ACCESS_WIFI_STATE</code> &amp; <code>CHANGE_WIFI_MULTICAST_STATE</code>:</strong> Used exclusively to discover UPnP/DLNA smart TVs and Google Cast speakers on your local Wi-Fi network (LAN). When casting local audio or relaying streams, the App runs a temporary local-only HTTP proxy server on your phone's LAN IP.</li>
+        <li><strong><code>POST_NOTIFICATIONS</code> &amp; <code>com.android.vending.BILLING</code>:</strong> Used for media playback controls in the notification bar and Google Play VIP subscription billing.</li>
+    </ul>
 
-    <h2>6. Local Data Storage, Retention &amp; Deletion</h2>
-    <p>All user preferences—including your favorite stations, custom 32-band EQ acoustic presets, theme selections, and recent playback snapshots—are stored <strong>100% locally on your device</strong> (via Android Room database and SharedPreferences). Because we do not store personal data on external servers, you have complete control over your data and can permanently delete all stored preferences at any time by clearing the App's storage in your Android system settings or by uninstalling the App.</p>
+    <h2>6. Audio Content &amp; DMCA Disclaimer</h2>
+    <p><strong>FM Radio: HiFi Radio AM FM</strong> is an audio streaming player and public directory aggregator. Audio streams are hosted by independent third-party broadcasters across the internet. We do not host, store, or broadcast any third-party radio streams directly.</p>
+    <p>All station names, logos, trademarks, and broadcast streams belong to their respective owners. For DMCA / copyright takedown requests, please contact the original stream provider or email us at <a href="mailto:phoenixglobalstudios@gmail.com">phoenixglobalstudios@gmail.com</a> for prompt link removal.</p>
 
-    <h2>7. Children's Privacy</h2>
-    <p>Our App is intended for a general audience and is not directed to children under the age of 13 (or the applicable minimum age in your jurisdiction). We do not knowingly collect any personal information from children.</p>
+    <h2>7. Data Retention, Deletion &amp; Resetting Device IDs</h2>
+    <ul>
+        <li><strong>Local App Preferences &amp; Crash Blackbox:</strong> Favorites, playback history, custom 32-band EQ presets, and local crash diagnostic logs (which are only shared if you manually choose to send an email via your mail client) are stored <strong>100% locally on your device</strong>. You can permanently delete all local data at any time by clearing the App's storage in Android Settings (<em>Settings &rarr; Apps &rarr; FM Radio: HiFi Radio AM FM &rarr; Storage &rarr; Clear data</em>) or by uninstalling the App.</li>
+        <li><strong>Deleting or Resetting "Device or other IDs" (Advertising ID):</strong> Because our App does not maintain user accounts or developer-controlled cloud servers, we do not store your Device IDs on our own servers. However, you have full control over the <strong>Google Advertising ID (AAID)</strong> collected and shared by Google SDKs. You can <strong>reset</strong> or <strong>permanently delete</strong> your Advertising ID at any time on your Android device by navigating to:
+            <br><code>Settings &rarr; Google &rarr; All services &rarr; Ads &rarr; Reset advertising ID / Delete advertising ID</code> (or <code>Settings &rarr; Privacy &rarr; Ads</code> on some Android devices).</li>
+        <li><strong>Data Retention by Third-Party SDKs:</strong> Data collected by Google AdMob, Google Play Services, and Google ML Kit is retained and deleted in accordance with <a href="https://policies.google.com/technologies/retention" target="_blank" rel="noopener noreferrer">Google's Data Retention Policies</a>.</li>
+    </ul>
 
-    <h2>8. Security</h2>
-    <p>We value your trust in using our App. We safeguard network traffic using encrypted HTTPS/TLS protocols where supported by stream providers, and enforce strict local sandbox isolation for all on-device DSP and AI processing.</p>
+    <h2>8. Children's Privacy</h2>
+    <p>Our App is intended for a general audience and is not directed to children under the age of 13 (or the applicable minimum age in your jurisdiction). We do not knowingly collect personal information from children.</p>
 
-    <h2>9. Changes to This Privacy Policy</h2>
-    <p>We may update our Privacy Policy from time to time to reflect new features or regulatory requirements. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top.</p>
+    <h2>9. Security</h2>
+    <p>We safeguard all off-device network and SDK traffic using encrypted HTTPS/TLS protocols and enforce strict local sandbox isolation for all on-device C++ DSP and AI speech processing.</p>
 
-    <h2>10. Contact Us</h2>
-    <p>If you have any questions, concerns, or suggestions about our Privacy Policy, please do not hesitate to contact us at: <a href="mailto:phoenixglobalstudios@gmail.com">phoenixglobalstudios@gmail.com</a></p>
+    <h2>10. Changes to This Privacy Policy</h2>
+    <p>We may update our Privacy Policy from time to time to reflect new features or regulatory requirements. Any updates will be posted on this page with an updated "Last updated" date.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>If you have any questions, privacy inquiries, or data requests regarding this Privacy Policy, please contact us at:</p>
+    <ul>
+        <li><strong>Developer / Studio:</strong> Phoenix Global Studios</li>
+        <li><strong>Email:</strong> <a href="mailto:phoenixglobalstudios@gmail.com">phoenixglobalstudios@gmail.com</a></li>
+    </ul>
 
     <footer>
         <p>&copy; 2026 Phoenix Global Studios. All rights reserved.</p>
